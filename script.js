@@ -15,3 +15,9 @@ function createGrid(numSquares = 16) {
         container.appendChild(square);
     }
 }
+
+container.addEventListener('mouseover', (e) => {
+    if (e.target === e.currentTarget) return;
+    const selectedCell = e.target;
+    selectedCell.classList.add('color');
+});
