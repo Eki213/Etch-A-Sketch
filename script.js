@@ -20,7 +20,7 @@ function createGrid(numSquares = 16) {
 container.addEventListener('mouseover', (e) => {
     if (e.target === e.currentTarget) return;
     const selectedCell = e.target;
-    selectedCell.classList.add('color');
+    selectedCell.style.backgroundColor ||= generateRandomColor();
 });
 
 button.addEventListener('click', () => {
@@ -32,3 +32,15 @@ button.addEventListener('click', () => {
     
     createGrid(NUM_SQUARES);
 });
+
+function generateRandomColor() {
+    const r = generateRandomRGBValue();
+    const g = generateRandomRGBValue();
+    const b = generateRandomRGBValue();
+
+    return `rgb(${r} ${g} ${b})`;
+}
+
+function generateRandomRGBValue() {
+    return Math.floor(Math.random() * 256);
+}
